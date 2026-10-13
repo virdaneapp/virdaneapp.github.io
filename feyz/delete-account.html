@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virdane Feyz — Hesap ve Veri Silme</title>
+  <meta name="description" content="Virdane Feyz hesabını ve bulut verilerini silme. Giriş gerekmez." />
+  <!--
+    Tek başına barındırılır. Uygulama deposuna göreli bağlantı yok.
+    Ad ve e-posta legalInfo ile elle aynı tutulur
+    (bu sayfa TypeScript import edemez).
+  -->
+  <style>
+    :root {
+      --bg: #f9f6f0;
+      --ink: #2c3531;
+      --sage: #8c9a86;
+      --sand: #d4a373;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #f9f6f0;
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 1.75rem;
+      font-style: normal;
+      margin: 0 0 0.5rem;
+    }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 650;
+      margin: 0 0 0.5rem;
+    }
+    .eyebrow {
+      color: var(--sage);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: rgba(44, 53, 49, 0.72);
+      margin: 0 0 1.25rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(140, 154, 134, 0.28);
+      border-radius: 16px;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1.25rem;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.1rem;
+      background: var(--sage);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.95rem;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: rgba(44, 53, 49, 0.7);
+    }
+    a { color: var(--sage); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Virdane Feyz · Hesap silme</p>
+    <h1>Hesabı ve verileri sil</h1>
+    <p class="meta">Sürüm 1.1 · Son güncelleme: 8 Ekim 2026</p>
+    <p>
+      Bu sayfa giriş gerektirmez. Hesabınızı uygulama içinden kendiniz silebilir veya aşağıdaki
+      e-posta adresine talepte bulunabilirsiniz.
+    </p>
+
+    <div class="card">
+      <h2>Uygulamada silme</h2>
+      <ol>
+        <li>Virdane Feyz’i açın.</li>
+        <li>Profil › Ayarlar › Hesap Yönetimi › <strong>Hesabı ve Verileri Tamamen Sil</strong>.</li>
+        <li>Onaylayın. Dilerseniz telefonunuzdaki zikir verilerini de silebilir («Cihazdaki verileri de sil») veya yalnızca bulut hesabını silip telefondaki verileri tutabilirsiniz («Yerelde tut»).</li>
+      </ol>
+      <p>Adınızı veya e-postanızı içermeyen misafir hesaplar da bu yolla silinir. İşlem, oturum doğrulandıktan sonra hemen uygulanır.</p>
+    </div>
+
+    <div class="card">
+      <h2>E-posta ile talep</h2>
+      <p>
+        Uygulamayı açamıyorsanız
+        <a href="mailto:virdane.destek@gmail.com?subject=Hesap%20Silme%20Talebi&amp;body=Profil%27de%20ID%20olarak%20g%C3%B6r%C3%BCnen%20k%C4%B1sa%20kimlik%20numaram%3A%0A%0AHesab%C4%B1m%C4%B1n%20ve%20bulut%20verilerimin%20silinmesini%20talep%20ediyorum.">virdane.destek@gmail.com</a>
+        adresine <strong>Hesap Silme Talebi</strong> konusuyla yazınız. İletide Profil’de
+        <strong>ID</strong> olarak görünen kısa kimlik numaranızı belirtiniz.
+      </p>
+      <p>E-posta talepleri en geç 30 gün içinde sonuçlandırılır. Bu yol telefonunuzdaki yerel kayıtları silmez.</p>
+      <a class="button" href="mailto:virdane.destek@gmail.com?subject=Hesap%20Silme%20Talebi&amp;body=Profil%27de%20ID%20olarak%20g%C3%B6r%C3%BCnen%20k%C4%B1sa%20kimlik%20numaram%3A%0A%0AHesab%C4%B1m%C4%B1n%20ve%20bulut%20verilerimin%20silinmesini%20talep%20ediyorum.">E-posta ile talep</a>
+    </div>
+
+    <div class="card">
+      <h2>Ne silinir, ne kalır?</h2>
+      <p><strong>Silinir:</strong> giriş hesabınız (misafir, e-posta, Apple veya Google) ve buluttaki tüm kayıtlarınız — kullanıcı adınız, kısa kimlik numaranız, zikir, feyz ve seri kayıtlarınız, saf üyelikleriniz, davetleriniz, engellemeleriniz, bildirim jetonunuz, analiz özetleriniz ve rıza kayıtlarınız.</p>
+      <p><strong>Saflar:</strong> kurduğunuz saf en eski üyeye devredilir; başka üye yoksa kapanır. Katkınız safın ortak toplamında sayı olarak kalır, sizinle ilişkilendirilmez. Şikâyet kayıtları kimliğinizden ayrılarak saklama süresi boyunca tutulabilir.</p>
+      <p><strong>«Cihazdaki verileri de sil»:</strong> ayrıca telefonunuzdaki zikir, feyz, seri ve özel zikir kayıtları, cihazda saklanan namaz vakitleri ve uygulamanın planladığı bildirimler silinir. <strong>Tema, ses ve bildirim tercihleri kalır.</strong></p>
+      <p><strong>«Yerelde tut» / e-posta talebi:</strong> telefonunuzdaki zikir verileri kalır. Uygulamayı silmek bu verileri de kaldırır.</p>
+      <p><strong>Abonelik:</strong> hesabınızı silmek mağaza aboneliğini iptal etmez. Aboneliğinizi App Store veya Google Play hesap ayarlarınızdan ayrıca iptal ediniz.</p>
+    </div>
+
+    <footer>
+      Veri sorumlusu: Savaş Onur Demirci.<br />
+      İletişim: virdane.destek@gmail.com
+    </footer>
+  </main>
+</body>
+</html>
