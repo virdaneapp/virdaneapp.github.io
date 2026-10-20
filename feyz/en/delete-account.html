@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virdane Feyz — Delete Account and Data</title>
+  <meta name="description" content="Delete your Virdane Feyz account and cloud data. No sign-in required." />
+  <!--
+    Tek başına barındırılır. Uygulama deposuna göreli bağlantı yok.
+    Ad ve e-posta legalInfo ile elle aynı tutulur
+    (bu sayfa TypeScript import edemez).
+  -->
+  <style>
+    :root {
+      --bg: #f9f6f0;
+      --ink: #2c3531;
+      --sage: #8c9a86;
+      --sand: #d4a373;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #f9f6f0;
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 1.75rem;
+      font-style: normal;
+      margin: 0 0 0.5rem;
+    }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 650;
+      margin: 0 0 0.5rem;
+    }
+    .eyebrow {
+      color: var(--sage);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: rgba(44, 53, 49, 0.72);
+      margin: 0 0 1.25rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(140, 154, 134, 0.28);
+      border-radius: 16px;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1.25rem;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.1rem;
+      background: var(--sage);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.95rem;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: rgba(44, 53, 49, 0.7);
+    }
+    a { color: var(--sage); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Virdane Feyz · Account deletion</p>
+    <h1>Delete your account and data</h1>
+    <p class="meta">Version 1.1 · Last updated: 20 October 2026</p>
+    <p>
+      This page does not require sign-in. You can delete your account yourself in the app or send a
+      request to the email address below.
+    </p>
+
+    <div class="card">
+      <h2>Delete in the app</h2>
+      <ol>
+        <li>Open Virdane Feyz.</li>
+        <li>Profile › Settings › Account › <strong>Delete Account and All Data</strong>.</li>
+        <li>Confirm. You can also delete the dhikr data on your phone (“Also delete the data on this device”) or delete only the cloud account and keep the data on your phone (“Keep on this device”).</li>
+      </ol>
+      <p>Guest accounts that do not contain your name or email are deleted the same way. Deletion takes effect immediately after your session is verified.</p>
+    </div>
+
+    <div class="card">
+      <h2>Request by email</h2>
+      <p>
+        If you cannot open the app, write to
+        <a href="mailto:virdane.destek@gmail.com?subject=Account%20Deletion%20Request&amp;body=My%20short%20ID%20shown%20as%20ID%20on%20my%20Profile%3A%0A%0AI%20request%20the%20deletion%20of%20my%20account%20and%20my%20cloud%20data.">virdane.destek@gmail.com</a>
+        with the subject <strong>Account Deletion Request</strong>. Please include the short ID shown as
+        <strong>ID</strong> on your Profile.
+      </p>
+      <p>Email requests are completed within 30 days at the latest. This route does not delete the local records on your phone.</p>
+      <a class="button" href="mailto:virdane.destek@gmail.com?subject=Account%20Deletion%20Request&amp;body=My%20short%20ID%20shown%20as%20ID%20on%20my%20Profile%3A%0A%0AI%20request%20the%20deletion%20of%20my%20account%20and%20my%20cloud%20data.">Request by email</a>
+    </div>
+
+    <div class="card" id="partial-deletion">
+      <h2>Deleting some data without deleting your account</h2>
+      <p><strong>Analytics data:</strong> turn off Profile › Settings › Privacy › <strong>Analytics</strong>. Your daily usage summaries in the cloud are deleted, the analytics buffer on your phone is cleared and error logs are no longer sent. Your account and dhikr records stay in place.</p>
+      <p><strong>Records on your phone:</strong> deleting the app removes all Virdane Feyz data stored on your phone.</p>
+      <p><strong>Other data:</strong> if you want a specific record deleted (e.g. a Saf or a report record), write to <a href="mailto:virdane.destek@gmail.com?subject=Data%20Deletion%20Request">virdane.destek@gmail.com</a> with the subject <strong>Data Deletion Request</strong>, including the short ID shown as <strong>ID</strong> on your Profile and the data you want deleted. Requests are completed within 30 days at the latest.</p>
+    </div>
+
+    <div class="card">
+      <h2>What is deleted, what remains?</h2>
+      <p><strong>Deleted:</strong> your sign-in account (guest, email, Apple or Google) and all your cloud records — your username, short ID, dhikr, Feyz and streak records, Saf memberships, invitations, blocks, notification token, analytics summaries and consent records.</p>
+      <p><strong>Safs:</strong> a Saf you started is handed over to its oldest member; if there are no other members, it closes. Your contribution remains as a number in the Saf’s shared total and is not linked to you. Report records are kept separated from your identity for 1 year after review (up to 2 years if not reviewed) and are then deleted automatically.</p>
+      <p><strong>“Also delete the data on this device”:</strong> in addition, the dhikr, Feyz, streak and custom dhikr records on your phone, the prayer times stored on the device and the notifications scheduled by the app are deleted. <strong>Theme, sound and notification preferences remain.</strong></p>
+      <p><strong>“Keep on this device” / email request:</strong> the dhikr data on your phone remains. Deleting the app removes this data too.</p>
+      <p><strong>Subscription:</strong> deleting your account does not cancel the store subscription. Please cancel it separately in your App Store or Google Play account settings.</p>
+    </div>
+
+    <footer>
+      Data controller: Savaş Onur Demirci.<br />
+      Contact: virdane.destek@gmail.com<br />
+      <a href="../delete-account.html">Türkçe</a>
+    </footer>
+  </main>
+</body>
+</html>
