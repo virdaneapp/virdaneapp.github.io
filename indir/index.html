@@ -3,8 +3,8 @@
 <title>Virdane Feyz'i indirin</title>
 <style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f4efe6;color:#2f3a2f;font-family:-apple-system,system-ui,sans-serif;text-align:center}main{padding:24px;max-width:360px}h1{font-size:22px;margin:0 0 8px}p{margin:0 0 20px;line-height:1.5}a.b{display:block;margin:10px 0;padding:14px;border-radius:12px;background:#3f5b45;color:#fff;text-decoration:none;font-weight:600}</style></head>
 <body><main><h1>Virdane Feyz</h1><p>Zikirmatik ve sevdiklerinizle ortak zikir.</p>
-<a class="b" id="ios" href="https://apps.apple.com/tr/app/id6824645820?l=tr">iPhone için App Store</a>
-<a class="b" id="and" href="https://play.google.com/store/apps/details?id=com.virdane.feyz&hl=tr">Android için Google Play</a>
+<a class="b" id="ios" href="https://apps.apple.com/tr/app/id6824645820?pt=129421195&ct=indir_sayfasi&mt=8">iPhone için App Store</a>
+<a class="b" id="and" href="https://play.google.com/store/apps/details?id=com.virdane.feyz&referrer=utm_source%3Ddirekt%26utm_medium%3Dindir_sayfasi">Android için Google Play</a>
 </main>
 <script>
 (function(){
@@ -30,15 +30,18 @@ function kaynak(){
 var src=kaynak().toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,32)||"direkt";
 var plat=/iPhone|iPad|iPod/i.test(u)?"ios":(/Android/i.test(u)?"android":"diger");
 var ios=document.getElementById("ios"),and=document.getElementById("and");
-ios.href=ios.href+"&ct="+encodeURIComponent(src);
-and.href=and.href+"&referrer="+encodeURIComponent("utm_source="+src+"&utm_medium=indir_sayfasi");
+var ct=(src==="direkt"?"indir_sayfasi":src).slice(0,40);
+ios.href="https://apps.apple.com/tr/app/id6824645820?pt=129421195&ct="+encodeURIComponent(ct)+"&mt=8";
+and.href="https://play.google.com/store/apps/details?id=com.virdane.feyz&referrer="+encodeURIComponent("utm_source="+src+"&utm_medium=indir_sayfasi");
+var URL_="https://egozqzvcncftfjqlnomq.supabase.co/rest/v1/rpc/log_landing_visit",KEY="sb_publishable_HdIJzWTj3p1VU93xkENLdw_JM5fwpL_";
+function log(ev){return fetch(URL_,{method:"POST",keepalive:true,headers:{"Content-Type":"application/json","apikey":KEY},body:JSON.stringify({p_src:src,p_platform:plat,p_event:ev})});}
+ios.addEventListener("click",function(){try{log("tik_ios").catch(function(){});}catch(e){}});
+and.addEventListener("click",function(){try{log("tik_android").catch(function(){});}catch(e){}});
 var done=false;
 function go(){if(done)return;done=true;
  if(plat==="ios")location.replace(ios.href);else if(plat==="android")location.replace(and.href);}
 try{
- fetch("https://egozqzvcncftfjqlnomq.supabase.co/rest/v1/rpc/log_landing_visit",{method:"POST",keepalive:true,
-  headers:{"Content-Type":"application/json","apikey":"sb_publishable_HdIJzWTj3p1VU93xkENLdw_JM5fwpL_"},
-  body:JSON.stringify({p_src:src,p_platform:plat})}).then(go,go);
+ log("acilis").then(go,go);
 }catch(e){go();}
 setTimeout(go,700);
 })();
