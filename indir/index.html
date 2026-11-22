@@ -7,7 +7,39 @@
 <a class="b" id="and" href="https://play.google.com/store/apps/details?id=com.virdane.feyz&hl=tr">Android için Google Play</a>
 </main>
 <script>
+(function(){
 var u=navigator.userAgent||"";
-if(/iPhone|iPad|iPod/i.test(u)){location.replace(document.getElementById("ios").href);}
-else if(/Android/i.test(u)){location.replace(document.getElementById("and").href);}
+var q=new URLSearchParams(location.search);
+function kaynak(){
+ var s=q.get("src")||"",us=(q.get("utm_source")||"").toLowerCase(),uc=(q.get("utm_content")||"").toLowerCase();
+ if(s)return s;
+ var ig=/instagram/i.test(u)||us==="ig"||us==="instagram";
+ var tt=/musical_ly|bytedance|tiktok/i.test(u)||us==="tiktok"||q.get("ttclid");
+ var fb=/FBAN|FBAV/i.test(u)||us==="fb"||us==="facebook";
+ if(ig)return uc==="link_in_bio"?"ig_bio":"ig";
+ if(tt)return q.get("ttclid")?"tiktok_reklam":"tiktok";
+ if(fb)return "fb";
+ if(q.get("fbclid"))return "meta";
+ if(us)return us;
+ var r=document.referrer||"";
+ if(/instagram\./i.test(r))return "ig";
+ if(/tiktok\./i.test(r))return "tiktok";
+ if(/google\./i.test(r))return "google";
+ return "direkt";
+}
+var src=kaynak().toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,32)||"direkt";
+var plat=/iPhone|iPad|iPod/i.test(u)?"ios":(/Android/i.test(u)?"android":"diger");
+var ios=document.getElementById("ios"),and=document.getElementById("and");
+ios.href=ios.href+"&ct="+encodeURIComponent(src);
+and.href=and.href+"&referrer="+encodeURIComponent("utm_source="+src+"&utm_medium=indir_sayfasi");
+var done=false;
+function go(){if(done)return;done=true;
+ if(plat==="ios")location.replace(ios.href);else if(plat==="android")location.replace(and.href);}
+try{
+ fetch("https://egozqzvcncftfjqlnomq.supabase.co/rest/v1/rpc/log_landing_visit",{method:"POST",keepalive:true,
+  headers:{"Content-Type":"application/json","apikey":"sb_publishable_HdIJzWTj3p1VU93xkENLdw_JM5fwpL_"},
+  body:JSON.stringify({p_src:src,p_platform:plat})}).then(go,go);
+}catch(e){go();}
+setTimeout(go,700);
+})();
 </script></body></html>
